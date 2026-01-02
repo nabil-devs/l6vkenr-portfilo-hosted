@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #000000; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        .gold-glow { color: #557aff; text-shadow: 0 0 15px rgba(85, 122, 255, 0.4); }
+        
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover { 
+            background: rgba(255, 255, 255, 0.06); 
+            border-color: rgba(85, 122, 255, 0.3); 
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(85, 122, 255, 0.1);
+        }
+        
+        .nav-capsule { 
+            background: rgba(10, 10, 10, 0.75); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #557aff;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .ring-container { animation: rotate 20s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        .nav-link.active { color: white !important; font-weight: 700; }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.8;
+        }
+
+        section { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-6">
+
+    <nav class="nav-capsule fixed top-8 z-50 px-6 py-3 rounded-full flex gap-6 text-sm font-medium items-center text-gray-400">
+        <a href="#home" class="gold-glow font-bold mr-4">David's</a>
+        <a href="#home" class="nav-link transition-colors active">Home</a>
+        <a href="#about" class="nav-link hover:text-white transition-colors">About</a>
+        <a href="#skills" class="nav-link hover:text-white transition-colors">Skills</a>
+        <a href="#projects" class="nav-link hover:text-white transition-colors">Projects</a>
+        <a href="#contact" class="nav-link hover:text-white transition-colors">Contact</a>
+    </nav>
+
+    <main id="home" class="min-h-screen max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center visible">
+        <div class="space-y-8">
+            <div class="space-y-2">
+                <p class="text-gray-400 text-lg">Hi!, I'm</p>
+                <h1 class="text-8xl font-bold tracking-tight">l6vkenr</h1>
+                <h2 class="text-4xl font-semibold gold-glow">
+                    Bot Developer<span class="cursor">|</span>
+                </h2>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="glass-card px-4 py-2 rounded-xl text-sm font-medium">
+                    <span class="gold-glow font-bold">1 year of</span> Experience
+                </div>
+                <div class="glass-card px-4 py-2 rounded-xl text-sm flex items-center gap-2">
+                    📍 Croatia, Zagreb
+                </div>
+            </div>
+
+            <div class="space-y-4 max-w-sm">
+                <div onclick="copyDiscord()" class="glass-card p-4 rounded-2xl flex items-center justify-between cursor-pointer group">
+                    <div class="flex items-center gap-3">
+                        <div class="relative">
+                            <img id="discord-avatar" src="https://cdn.discordapp.com/avatars/1412833508954476544/82f4a2c0dd7a665e87c1bf6557f601ae.png?size=512" class="w-10 h-10 rounded-lg bg-gray-800 object-cover" alt="Avatar">
+                            <div id="status-dot" class="absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 border-black bg-gray-600 transition-colors"></div>
+                        </div>
+                        <div>
+                            <p id="discord-name" class="text-sm font-bold group-hover:text-blue-400 transition">Loading...</p>
+                            <p id="discord-tag" class="text-xs text-gray-500">l6vkenr</p>
+                        </div>
+                    </div>
+                    <div class="text-right text-[10px] text-gray-500 font-bold uppercase" id="discord-status-text">OFFLINE</div>
+                </div>
+
+                <div id="activity-card" class="glass-card p-4 rounded-2xl flex items-center gap-3 opacity-90">
+                    <div id="activity-icon" class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-500 overflow-hidden text-xs">⊖</div>
+                    <div>
+                        <p id="activity-name" class="text-sm font-bold">No Activity</p>
+                        <p id="activity-detail" class="text-xs text-gray-500 leading-tight">Not doing anything right now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative flex justify-center items-center">
+            <div class="ring-container absolute w-[24rem] h-[24rem] border-2 border-dashed border-blue-500/20 rounded-full"></div>
+            <div class="relative w-80 h-80 rounded-full p-1 bg-gradient-to-tr from-blue-500/30 via-transparent to-transparent">
+                <div class="w-full h-full rounded-full bg-[#0a0a0a] overflow-hidden border-4 border-black shadow-2xl">
+                    <img src="https://cdn.discordapp.com/avatars/1412833508954476544/82f4a2c0dd7a665e87c1bf6557f601ae.png?size=512" 
+                         alt="Profile" 
+                         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-110 hover:scale-100">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="about" class="max-w-6xl w-full py-24 px-4 flex flex-col gap-8">
+        <div class="flex items-center gap-4 mb-4">
+            <h2 class="text-4xl font-bold">About Me</h2>
+            <div class="h-[1px] flex-grow bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 glass-card p-8 rounded-3xl group">
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    I am a developer based in Zagreb, Croatia. I specialize in <span class="text-white font-semibold">Discord Bot development</span> and Website Creation.
+                </p>
+                <p class="text-gray-400">I enjoy creating tools that make people's lifes easier and creating clean, modern interfaces for websites and discord bots.</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                <h3 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-4">Focus</h3>
+                <ul class="space-y-3 text-sm">
+                    <li>• Python Automation</li>
+                    <li>• Discord.js Logic</li>
+                    <li>• Frontend Design</li>
+                    <li>• Html and Tailwind CSS</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="max-w-6xl w-full py-24 px-4">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-4xl font-bold">Skills</h2>
+            <div class="h-[1px] flex-grow bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">PY</div>
+                <span class="font-semibold text-xs">Python</span>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">JS</div>
+                <span class="font-semibold text-xs">JavaScript</span>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">DJS</div>
+                <span class="font-semibold text-xs">Discord.js</span>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">DB</div>
+                <span class="font-semibold text-xs">Databases</span>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">TW</div>
+                <span class="font-semibold text-xs">Tailwind</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="max-w-6xl w-full py-24 px-4">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-4xl font-bold">Projects</h2>
+            <div class="h-[1px] flex-grow bg-white/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card p-8 rounded-3xl group">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-2xl font-bold group-hover:text-blue-400 transition">Nexus</h3>
+                    <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase">Active</span>
+                </div>
+                <p class="text-gray-400">multi-purpose Discord bot built with Node.js.</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl group opacity-60">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-2xl font-bold">Blockbuilder</h3>
+                    <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-500 text-[10px] font-bold uppercase">Coming Soon</span>
+                </div>
+                <p class="text-gray-400">A modular framework for building Discord bots.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="max-w-6xl w-full py-24 px-4 pb-40">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-4xl font-bold">Contact</h2>
+            <div class="h-[1px] flex-grow bg-white/10"></div>
+        </div>
+        <div class="glass-card p-12 rounded-3xl text-center max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold mb-8">Get in touch</h3>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="copyDiscord()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-2xl transition-all flex items-center justify-center gap-2">
+                    Discord ID
+                </button>
+                <a href="https://github.com/l6vkenr" target="_blank" class="glass-card hover:bg-white/10 text-white font-bold py-4 px-8 rounded-2xl transition-all flex items-center justify-center gap-2">
+                    GitHub Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function copyDiscord() {
+            const tag = "l6vkenr";
+            navigator.clipboard.writeText(tag).then(() => {
+                alert("Discord ID copied to clipboard!");
+            });
+        }
+
+        // Snowflake Logic
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            const size = Math.random() * 4 + 2 + 'px';
+            snowflake.style.width = size;
+            snowflake.style.height = size;
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.filter = "blur(1px)";
+            document.body.appendChild(snowflake);
+            const animation = snowflake.animate([
+                { transform: `translateY(0) translateX(0)`, opacity: Math.random() },
+                { transform: `translateY(100vh) translateX(${Math.random() * 50 - 25}px)`, opacity: 0 }
+            ], { duration: Math.random() * 3000 + 2000, easing: 'linear' });
+            animation.onfinish = () => snowflake.remove();
+        }
+        setInterval(createSnowflake, 150);
+
+        // Visibility Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+        // Nav Spy
+        window.addEventListener('scroll', () => {
+            let current = "";
+            document.querySelectorAll('main, section').forEach(section => {
+                if (pageYOffset >= section.offsetTop - 200) current = section.getAttribute("id");
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) link.classList.add("active");
+            });
+        });
+    </script>
+    <script src="discord.js"></script>
+</body>
+</html>
