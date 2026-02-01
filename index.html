@@ -191,6 +191,10 @@
             <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
                 <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">TW</div>
                 <span class="font-semibold text-xs">Tailwind</span>
+            </div>   
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">TSX</div>
+                <span class="font-semibold text-xs">Typescript</span>
             </div>
         </div>
     </section>
@@ -244,7 +248,7 @@
             });
         }
 
-        // Snowflake Logic
+        
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
@@ -262,13 +266,13 @@
         }
         setInterval(createSnowflake, 150);
 
-        // Visibility Observer
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-        // Nav Spy
+        
         window.addEventListener('scroll', () => {
             let current = "";
             document.querySelectorAll('main, section').forEach(section => {
@@ -284,4 +288,5 @@
 </body>
 
 </html>
+
 
