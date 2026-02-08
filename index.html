@@ -1,24 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>David | Full-stack Developer</title>
-    <meta name="description" content="David - Full-stack Developer with 1+ years of experience. Building amazing web applications." />
-    <meta name="author" content="David" />
-
-    <meta property="og:title" content="David.devs | Full-stack Developer - Portfolio" />
-    <meta property="og:description" content="Full-stack Developer with 1+ years of experience building amazing web applications." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://images-ext-1.discordapp.net/external/kvgv2S4dlpnHjKCLzkzzSD6NC-Syl14MBu1YsYRkaeY/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1412833508954476544/82f4a2c0dd7a665e87c1bf6557f601ae.png?format=webp&quality=lossless&width=230&height=230" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@l6vkenr" />
-    <meta name="twitter:image" content="https://images-ext-1.discordapp.net/external/kvgv2S4dlpnHjKCLzkzzSD6NC-Syl14MBu1YsYRkaeY/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1412833508954476544/82f4a2c0dd7a665e87c1bf6557f601ae.png?format=webp&quality=lossless&width=230&height=230" />
-</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David's Portfolio</title>
+    <title>David.devs | Full-stack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -61,24 +46,28 @@
         
         .nav-link.active { color: white !important; font-weight: 700; }
 
-        .snowflake {
+        .flower {
             position: fixed;
-            top: -10px;
-            background: white;
-            border-radius: 50%;
+            top: -20px;
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.8;
+            user-select: none;
+            text-shadow: 0 0 10px rgba(85, 122, 255, 0.5);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         section { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         section.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center p-6">
+<body class="min-h-screen flex flex-col items-center p-4 md:p-6">
 
-    <nav class="nav-capsule fixed top-8 z-50 px-6 py-3 rounded-full flex gap-6 text-sm font-medium items-center text-gray-400">
-        <a href="#home" class="gold-glow font-bold mr-4">David's</a>
+    <nav class="nav-capsule fixed top-4 md:top-8 z-50 px-4 md:px-6 py-2 md:py-3 rounded-full flex gap-3 md:gap-6 text-xs md:text-sm font-medium items-center text-gray-400 max-w-[95%] overflow-x-auto whitespace-nowrap">
+        <a href="#home" class="gold-glow font-bold mr-2 md:mr-4">David's</a>
         <a href="#home" class="nav-link transition-colors active">Home</a>
         <a href="#about" class="nav-link hover:text-white transition-colors">About</a>
         <a href="#skills" class="nav-link hover:text-white transition-colors">Skills</a>
@@ -86,26 +75,26 @@
         <a href="#contact" class="nav-link hover:text-white transition-colors">Contact</a>
     </nav>
 
-    <main id="home" class="min-h-screen max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center visible">
-        <div class="space-y-8">
-            <div class="space-y-2">
-                <p class="text-gray-400 text-lg">Hi!, I'm</p>
-                <h1 class="text-8xl font-bold tracking-tight">l6vkenr</h1>
-                <h2 class="text-4xl font-semibold gold-glow">
+    <main id="home" class="min-h-screen max-w-6xl w-full flex flex-col-reverse md:grid md:grid-cols-2 gap-8 md:gap-12 items-center visible pt-24 md:pt-0">
+        <div class="space-y-6 md:space-y-8 w-full">
+            <div class="space-y-2 text-center md:text-left">
+                <p class="text-gray-400 text-base md:text-lg">Hi!, I'm</p>
+                <h1 class="text-6xl md:text-8xl font-bold tracking-tight">l6vkenr</h1>
+                <h2 class="text-2xl md:text-4xl font-semibold gold-glow">
                     Bot Developer<span class="cursor">|</span>
                 </h2>
             </div>
 
-            <div class="flex gap-4">
-                <div class="glass-card px-4 py-2 rounded-xl text-sm font-medium">
+            <div class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
+                <div class="glass-card px-3 md:px-4 py-2 rounded-xl text-xs md:text-sm font-medium">
                     <span class="gold-glow font-bold">1 year of</span> Experience
                 </div>
-                <div class="glass-card px-4 py-2 rounded-xl text-sm flex items-center gap-2">
+                <div class="glass-card px-3 md:px-4 py-2 rounded-xl text-xs md:text-sm flex items-center gap-2">
                     📍 Croatia, Zagreb
                 </div>
             </div>
 
-            <div class="space-y-4 max-w-sm">
+            <div class="space-y-4 max-w-sm mx-auto md:mx-0">
                 <div onclick="copyDiscord()" class="glass-card p-4 rounded-2xl flex items-center justify-between cursor-pointer group">
                     <div class="flex items-center gap-3">
                         <div class="relative">
@@ -130,9 +119,9 @@
             </div>
         </div>
 
-        <div class="relative flex justify-center items-center">
-            <div class="ring-container absolute w-[24rem] h-[24rem] border-2 border-dashed border-blue-500/20 rounded-full"></div>
-            <div class="relative w-80 h-80 rounded-full p-1 bg-gradient-to-tr from-blue-500/30 via-transparent to-transparent">
+        <div class="relative flex justify-center items-center w-full">
+            <div class="ring-container absolute w-64 h-64 md:w-[24rem] md:h-[24rem] border-2 border-dashed border-blue-500/20 rounded-full"></div>
+            <div class="relative w-56 h-56 md:w-80 md:h-80 rounded-full p-1 bg-gradient-to-tr from-blue-500/30 via-transparent to-transparent">
                 <div class="w-full h-full rounded-full bg-[#0a0a0a] overflow-hidden border-4 border-black shadow-2xl">
                     <img src="https://cdn.discordapp.com/avatars/1412833508954476544/82f4a2c0dd7a665e87c1bf6557f601ae.png?size=512" 
                          alt="Profile" 
@@ -142,98 +131,97 @@
         </div>
     </main>
 
-    <section id="about" class="max-w-6xl w-full py-24 px-4 flex flex-col gap-8">
+    <section id="about" class="max-w-6xl w-full py-16 md:py-24 px-4 flex flex-col gap-8">
         <div class="flex items-center gap-4 mb-4">
-            <h2 class="text-4xl font-bold">About Me</h2>
+            <h2 class="text-3xl md:text-4xl font-bold">About Me</h2>
             <div class="h-[1px] flex-grow bg-white/10"></div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="md:col-span-2 glass-card p-8 rounded-3xl group">
-                <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                    I am a developer based in Zagreb, Croatia. I specialize in <span class="text-white font-semibold">Discord Bot development</span> and Website Creation.
+            <div class="md:col-span-2 glass-card p-6 md:p-8 rounded-3xl group">
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                    I am a developer based in Zagreb, Croatia. I specialize in <span class="text-white font-semibold">Discord Bot development</span> and html website creation.
                 </p>
-                <p class="text-gray-400">I enjoy creating tools that make people's lifes easier and creating clean, modern interfaces for websites and discord bots.</p>
+                <p class="text-gray-400">I enjoy creating tools that simplify community management and building clean, modern interfaces.</p>
             </div>
-            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+            <div class="glass-card p-6 md:p-8 rounded-3xl flex flex-col justify-between">
                 <h3 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-4">Focus</h3>
                 <ul class="space-y-3 text-sm">
-                    <li>• Python Automation</li>
-                    <li>• Discord.js Logic</li>
-                    <li>• Frontend Design</li>
-                    <li>• Html and Tailwind CSS</li>
+                    <li>• Python</li>
+                    <li>• Discord.js</li>
+                    <li>• UI/UX Design</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="max-w-6xl w-full py-24 px-4">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-4xl font-bold">Skills</h2>
+    <section id="skills" class="max-w-6xl w-full py-16 md:py-24 px-4">
+        <div class="flex items-center gap-4 mb-8 md:mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">Skills</h2>
             <div class="h-[1px] flex-grow bg-white/10"></div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
-                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">PY</div>
-                <span class="font-semibold text-xs">Python</span>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-4">
+            <div class="glass-card p-4 md:p-6 rounded-2xl flex flex-col items-center gap-3 md:gap-4 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold text-sm md:text-base">PY</div>
+                <span class="font-semibold text-[10px] md:text-xs">Python</span>
             </div>
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
-                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">JS</div>
-                <span class="font-semibold text-xs">JavaScript</span>
+            <div class="glass-card p-4 md:p-6 rounded-2xl flex flex-col items-center gap-3 md:gap-4 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold text-sm md:text-base">JS</div>
+                <span class="font-semibold text-[10px] md:text-xs">JavaScript</span>
             </div>
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
-                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">DJS</div>
-                <span class="font-semibold text-xs">Discord.js</span>
+            <div class="glass-card p-4 md:p-6 rounded-2xl flex flex-col items-center gap-3 md:gap-4 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold text-sm md:text-base">DJS</div>
+                <span class="font-semibold text-[10px] md:text-xs">Discord.js</span>
             </div>
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
-                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">DB</div>
-                <span class="font-semibold text-xs">Databases</span>
+            <div class="glass-card p-4 md:p-6 rounded-2xl flex flex-col items-center gap-3 md:gap-4 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold text-sm md:text-base">DB</div>
+                <span class="font-semibold text-[10px] md:text-xs">Databases</span>
             </div>
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
-                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">TW</div>
-                <span class="font-semibold text-xs">Tailwind</span>
-            </div>   
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
-                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">TSX</div>
-                <span class="font-semibold text-xs">Typescript</span>
+            <div class="glass-card p-4 md:p-6 rounded-2xl flex flex-col items-center gap-3 md:gap-4 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold text-sm md:text-base">TW</div>
+                <span class="font-semibold text-[10px] md:text-xs">Tailwind</span>
+            </div>
+            <div class="glass-card p-4 md:p-6 rounded-2xl flex flex-col items-center gap-3 md:gap-4 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold text-sm md:text-base">HTML</div>
+                <span class="font-semibold text-[10px] md:text-xs">HTML/CSS</span>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="max-w-6xl w-full py-24 px-4">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-4xl font-bold">Projects</h2>
+    <section id="projects" class="max-w-6xl w-full py-16 md:py-24 px-4">
+        <div class="flex items-center gap-4 mb-8 md:mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">Projects</h2>
             <div class="h-[1px] flex-grow bg-white/10"></div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="glass-card p-8 rounded-3xl group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div class="glass-card p-6 md:p-8 rounded-3xl group">
                 <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-2xl font-bold group-hover:text-blue-400 transition">Nexus</h3>
+                    <h3 class="text-xl md:text-2xl font-bold group-hover:text-blue-400 transition">Nexus</h3>
                     <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase">Active</span>
                 </div>
-                <p class="text-gray-400">multi-purpose Discord bot built with Node.js.</p>
+                <p class="text-gray-400 text-sm md:text-base">High-performance multi-purpose Discord bot built with Node.js.</p>
             </div>
-            <div class="glass-card p-8 rounded-3xl group opacity-60">
+            <div class="glass-card p-6 md:p-8 rounded-3xl group opacity-60 relative overflow-hidden">
                 <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-2xl font-bold">Blockbuilder</h3>
+                    <h3 class="text-xl md:text-2xl font-bold">Blockbuilder</h3>
                     <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-500 text-[10px] font-bold uppercase">Coming Soon</span>
                 </div>
-                <p class="text-gray-400">A modular framework for building Discord bots.</p>
+                <p class="text-gray-400 text-sm md:text-base">A modular framework for building interactions.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="max-w-6xl w-full py-24 px-4 pb-40">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-4xl font-bold">Contact</h2>
+    <section id="contact" class="max-w-6xl w-full py-16 md:py-24 px-4 pb-32 md:pb-40">
+        <div class="flex items-center gap-4 mb-8 md:mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">Contact</h2>
             <div class="h-[1px] flex-grow bg-white/10"></div>
         </div>
-        <div class="glass-card p-12 rounded-3xl text-center max-w-2xl mx-auto">
-            <h3 class="text-2xl font-bold mb-8">Get in touch</h3>
+        <div class="glass-card p-8 md:p-12 rounded-3xl text-center max-w-2xl mx-auto">
+            <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8">Get in touch</h3>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="copyDiscord()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-2xl transition-all flex items-center justify-center gap-2">
+                <button onclick="copyDiscord()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-2xl transition-all text-sm md:text-base">
                     Discord ID
                 </button>
-                <a href="https://github.com/l6vkenr" target="_blank" class="glass-card hover:bg-white/10 text-white font-bold py-4 px-8 rounded-2xl transition-all flex items-center justify-center gap-2">
+                <a href="https://github.com" target="_blank" class="glass-card hover:bg-white/10 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-2xl transition-all text-sm md:text-base">
                     GitHub Profile
                 </a>
             </div>
@@ -248,35 +236,36 @@
             });
         }
 
-        
-        function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.classList.add('snowflake');
-            const size = Math.random() * 4 + 2 + 'px';
-            snowflake.style.width = size;
-            snowflake.style.height = size;
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.filter = "blur(1px)";
-            document.body.appendChild(snowflake);
-            const animation = snowflake.animate([
-                { transform: `translateY(0) translateX(0)`, opacity: Math.random() },
-                { transform: `translateY(100vh) translateX(${Math.random() * 50 - 25}px)`, opacity: 0 }
-            ], { duration: Math.random() * 3000 + 2000, easing: 'linear' });
-            animation.onfinish = () => snowflake.remove();
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            const flowers = ['🌸', '✨', '💮', '🌼', '💠'];
+            flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+            const size = Math.random() * 10 + 10 + 'px';
+            flower.style.fontSize = size;
+            flower.style.left = Math.random() * window.innerWidth + 'px';
+            const opacity = Math.random() * 0.5 + 0.3;
+            flower.style.opacity = opacity;
+            const spinDuration = Math.random() * 3 + 2 + 's';
+            flower.style.animation = `spin ${spinDuration} infinite linear`;
+            document.body.appendChild(flower);
+            const animation = flower.animate([
+                { transform: `translateY(0) translateX(0) rotate(0deg)`, opacity: opacity },
+                { transform: `translateY(105vh) translateX(${Math.random() * 60 - 30}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], { duration: Math.random() * 4000 + 4000, easing: 'ease-in-out' });
+            animation.onfinish = () => flower.remove();
         }
-        setInterval(createSnowflake, 150);
+        setInterval(createFlower, 400);
 
-        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05 });
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-        
         window.addEventListener('scroll', () => {
             let current = "";
             document.querySelectorAll('main, section').forEach(section => {
-                if (pageYOffset >= section.offsetTop - 200) current = section.getAttribute("id");
+                if (pageYOffset >= section.offsetTop - 150) current = section.getAttribute("id");
             });
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove("active");
@@ -286,7 +275,4 @@
     </script>
     <script src="discord.js"></script>
 </body>
-
 </html>
-
-
