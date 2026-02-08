@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David | Full-stack Developer</title>
+    <meta name="description" content="David - Full-stack Developer with 1+ years of experience. Building amazing web applications." />
+    <meta name="author" content="David" />
+
+    <meta property="og:title" content="David.devs | Full-stack Developer - Portfolio" />
+    <meta property="og:description" content="Full-stack Developer with 1+ years of experience building amazing web applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images-ext-1.discordapp.net/external/kvgv2S4dlpnHjKCLzkzzSD6NC-Syl14MBu1YsYRkaeY/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1412833508954476544/82f4a2c0dd7a665e87c1bf6557f601ae.png?format=webp&quality=lossless&width=230&height=230" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@l6vkenr" />
+    <meta name="twitter:image" content="https://images-ext-1.discordapp.net/external/kvgv2S4dlpnHjKCLzkzzSD6NC-Syl14MBu1YsYRkaeY/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1412833508954476544/82f4a2c0dd7a665e87c1bf6557f601ae.png?format=webp&quality=lossless&width=230&height=230" />
+</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David's Portfolio</title>
@@ -176,6 +191,10 @@
             <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
                 <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">TW</div>
                 <span class="font-semibold text-xs">Tailwind</span>
+            </div>   
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center gap-4 group">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all font-bold">TSX</div>
+                <span class="font-semibold text-xs">Typescript</span>
             </div>
         </div>
     </section>
@@ -229,7 +248,7 @@
             });
         }
 
-        // Snowflake Logic
+        
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
@@ -247,13 +266,13 @@
         }
         setInterval(createSnowflake, 150);
 
-        // Visibility Observer
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-        // Nav Spy
+        
         window.addEventListener('scroll', () => {
             let current = "";
             document.querySelectorAll('main, section').forEach(section => {
@@ -267,4 +286,7 @@
     </script>
     <script src="discord.js"></script>
 </body>
+
 </html>
+
+
